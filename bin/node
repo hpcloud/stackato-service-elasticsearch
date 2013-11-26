@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __FILE__)
+require 'bundler/setup'
+require 'vcap_services_base'
+
+$LOAD_PATH.unshift(File.expand_path("../../lib", __FILE__))
+require 'elasticsearch_service/node'
+
+
+class VCAP::Services::Elasticsearch::NodeBin < VCAP::Services::Base::NodeBin
+
+  def initialize
+    @component_id = 'elasticsearch_node'
+  end
+
+  def node_class
+    VCAP::Services::Elasticsearch::Node
+  end
+
+  def default_config_file
+    File.join(File.dirname(__FILE__), '..', 'config', 'node.yml')
+  end
+
+  # add any keys that you want to be added to the options
+  # variable that are not set by the base class here
+  def additional_config(options, config)
+    options[:port] = parse_property(config, 'port', Integer)
+    return options
+  end
+
+end
+
+# Run this process
+VCAP::Services::Elasticsearch::NodeBin.new.start

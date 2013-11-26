@@ -1,0 +1,10 @@
+
+[program:elasticsearch_gateway]
+directory=/s/code/services/elasticsearch
+command=/opt/rubies/current/bin/bundle exec bin/gateway
+priority=30
+redirect_stderr=true
+stdout_logfile=/s/logs/elasticsearch_gateway.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=3
+autostart=false

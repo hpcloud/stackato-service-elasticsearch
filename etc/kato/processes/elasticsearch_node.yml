@@ -1,0 +1,5 @@
+name: elasticsearch_node
+config_origin: /s/code/services/elasticsearch/config/node.yml
+sets_running_status: true
+roles:
+  - elasticsearch

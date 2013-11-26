@@ -1,0 +1,10 @@
+# Elasticsearch configuration file for Stackato
+
+# bind only to localhost for security purposes
+network.bind_host: 127.0.0.1
+
+# disable node discovery via multicast
+discovery.zen.ping.multicast.enabled: false
+
+# disable shutdown REST API
+action.disable_shutdown: true

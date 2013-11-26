@@ -1,0 +1,34 @@
+# what is the API endpoint for the cloud controller?
+cloud_controller_uri: api.stackato-xxxx.local
+service:
+  # name of the service. Duh.
+  name: elasticsearch
+  # the version number should represent the version of the service
+  # MySQL 5.6.5, PostgreSQL 9.2.4)
+  version: '0.90.7'
+  supported_versions:
+    - '0.90.7'
+  version_aliases:
+    'current': '0.90.7'
+  # a short description of what this service is
+  description: 'a powerful open source search and analytics engine that makes data easy to explore.'
+  # what plans are available for this service?
+  plans: ['free']
+  # when creating a service, what is the default plan?
+  default_plan: free
+  # common metadata tags for this service
+  tags: ['elasticsearch', 'search', 'analytics']
+  timeout: 10
+# what static IP address is this service hosted on?
+ip_route: 127.0.0.1
+# a unique number if you have multiple service gateways
+# remove this if you just have one service gateway
+index: 0
+# where is the message bus in the cluster?
+# find this value by using `kato config get cloud_controller mbus`
+mbus: nats://127.0.0.1:4222
+# where should the pidfile of this gateway reside?
+pid: /var/stackato/sys/run/elasticsearch_gateway.pid
+# The logging level that VCAP Logging should use
+logging:
+  level: debug

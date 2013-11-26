@@ -1,0 +1,21 @@
+# does the user have to pay to use this service?
+plan: free
+# how many instances of this service can you provision before it borks?
+capacity: 100
+# the port that the service will be consuming
+port: 9200
+# where will the node instances go?
+base_dir: /var/stackato/services/elasticsearch/
+# where does the database for this process reside?
+local_db: sqlite3:/var/stackato/services/elasticsearch/elasticsearch_node.db
+# where is the NATS message bus in your cluster?
+mbus: nats://localhost:4222
+# the pidfile for the node process
+pid: /var/stackato/sys/run/elasticsearch_gateway.pid
+# the ID of this node
+node_id: elasticsearch_node_1
+# The logging level that VCAP Logging should use
+logging:
+  level: debug
+supported_versions: [ "0.90.7" ]
+default_version: "0.90.7"
