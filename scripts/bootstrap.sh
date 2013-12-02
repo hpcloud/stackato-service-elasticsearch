@@ -21,7 +21,7 @@ start-supervisord
 kato start
 
 # Add the authentication token to the config
-SERVICE_TOKEN=$(python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)')
+SERVICE_TOKEN=$(python -c 'import sys,uuid; sys.stdout.write(str(uuid.uuid4()))')
 echo "token: $SERVICE_TOKEN" >> $INSTALL_DIR/config/gateway.yml
 
 # set kato config
