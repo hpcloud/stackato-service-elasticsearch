@@ -27,6 +27,8 @@ echo "token: $SERVICE_TOKEN" >> $INSTALL_DIR/config/gateway.yml
 # set kato config
 cat $INSTALL_DIR/config/gateway.yml | kato config set elasticsearch_gateway / --yaml
 cat $INSTALL_DIR/config/node.yml | kato config set elasticsearch_node / --yaml
+## set the cloud_controller URI based on existing keys
+kato config set elasticsearch_gateway cloud_controller_uri $(kato config get cluster endpoint)
 
 # Add the authentication token to the cloud controller
 kato config set cloud_controller_ng builtin_services/elasticsearch/token $SERVICE_TOKEN
