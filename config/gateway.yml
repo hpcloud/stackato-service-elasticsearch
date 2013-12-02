@@ -11,7 +11,7 @@ service:
   version_aliases:
     'current': '0.90.7'
   # a short description of what this service is
-  description: 'a powerful open source search and analytics engine that makes data easy to explore.'
+  description: 'a search and analytics engine'
   # what plans are available for this service?
   plans: ['free']
   # when creating a service, what is the default plan?
