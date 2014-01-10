@@ -80,7 +80,7 @@ class VCAP::Services::Elasticsearch::Node
     instance = ProvisionedService.new
     instance.name = credential ? credential["name"] : UUIDTools::UUID.random_create.to_s
 
-    @logger.debug("Provisioning elasticsearch instance: #{name}")
+    @logger.debug("Provisioning elasticsearch instance: #{instance.name}")
 
     # do the provisioning code in here, as well as saving the
     # information into the database
@@ -141,7 +141,7 @@ class VCAP::Services::Elasticsearch::Node
       "host" => host,
       "port" => port,
       "name" => name,
-      "uri" => "http://#{host}:#{port}/#{name}"
+      "uri" => "http://#{host}:#{port}/"
     })
   end
 
