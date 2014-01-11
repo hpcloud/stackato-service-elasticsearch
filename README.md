@@ -14,14 +14,14 @@ here are for [Stackato v3.0 beta](http://beta.stackato.com/).
 Log in to the Stackato VM (either a micro cloud or a service node, if you are
 in a clustered environment) as the stackato user and clone this repository:
 
-    $ git clone git://github.com/ActiveState/stackato-elasticsearch-service /s/code/services/elasticsearch
+    $ git clone git://github.com/ActiveState/stackato-elasticsearch-service ~/stackato-elasticsearch-service
 
 After it's been cloned, run the following scripts that are given to you in the
 `scripts/` directory:
 
-    $ cd /s/code/services/elasticsearch
-    $ sudo bash scripts/install-elasticsearch.sh
-    $ bash scripts/bootstrap.sh
+    $ cd ~/stackato-elasticsearch-service
+    $ sudo ./scripts/install-elasticsearch.sh
+    $ ./scripts/bootstrap.sh
 
 ## Verify the service
 
