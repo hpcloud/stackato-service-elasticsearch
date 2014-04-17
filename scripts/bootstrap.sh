@@ -11,7 +11,7 @@ stop-supervisord
 
 # Copy elasticsearch to the services folder and install gems
 cp -R $ROOT_DIR $INSTALL_DIR
-cd $INSTALL_DIR && bundle install
+cd $INSTALL_DIR && bundle update && bundle install
 
 # Copy configuration files
 cp -R etc/* /s/etc/
