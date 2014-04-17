@@ -16,7 +16,7 @@ gem 'dm-sqlite-adapter', '1.2.0'
 gem 'do_sqlite3', '0.10.13'
 
 # The NATS message bus
-gem 'nats', '0.4.26'
+gem 'nats', '0.5.0.beta12'
 
 # Used to work with elasticsearch
 gem 'elasticsearch', '0.4.1'
@@ -27,7 +27,7 @@ gem 'vcap_common', :path => '../../common', :require => ['vcap/common', 'vcap/co
 gem 'vcap_services_base', :path => '../base'
 gem 'vcap_logging', '>=0.1.3', :require => ['vcap/logging']
 # stackato's vcap_common relies on eventmachine for event-based triggers
-gem 'eventmachine', '1.0.1'
+gem 'eventmachine', '1.0.3'
 gem 'em-http-request', '1.0.3'
 
 group :test do

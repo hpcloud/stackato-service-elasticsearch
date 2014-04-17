@@ -13,7 +13,10 @@ service:
   # a short description of what this service is
   description: 'a search and analytics engine'
   # what plans are available for this service?
-  plans: ['free']
+  plans:
+    free:
+      unique_id: 585cf8a1-f468-4f6a-9772-91c1f1c9973b
+      name: free
   # when creating a service, what is the default plan?
   default_plan: free
   # common metadata tags for this service
