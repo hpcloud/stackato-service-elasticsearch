@@ -14,14 +14,25 @@ here are for [Stackato v3.0 beta](http://beta.stackato.com/).
 Log in to the Stackato VM (either a micro cloud or a service node, if you are
 in a clustered environment) as the stackato user and clone this repository:
 
-    $ git clone git://github.com/ActiveState/stackato-elasticsearch-service ~/stackato-elasticsearch-service
+    $ git clone git://github.com/ActiveState/stackato-elasticsearch-service ~/stackato/services/elasticsearch
 
 After it's been cloned, run the following scripts that are given to you in the
 `scripts/` directory:
 
-    $ cd ~/stackato-elasticsearch-service
+    $ cd ~/stackato/services/elasticsearch
     $ sudo ./scripts/install-elasticsearch.sh
     $ ./scripts/bootstrap.sh
+    
+## Installing on a Data-Services Node
+
+When Elasticsearch is installed on a cluster data-services node,
+two additional steps are needed to bind the service to the
+core node:
+
+    $ for type in elasticsearch_{node,gateway} ; do
+        kato config set $type mbus nats://<CORE_IP>:4522
+    done
+    $ scp /s/code/services/elasticsearch/etc/kato/processes/*.yml stackato@<CORE_IP>:/s/etc/kato/processes/
 
 ## Verify the service
 
