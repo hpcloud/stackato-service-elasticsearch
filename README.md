@@ -7,7 +7,7 @@ first-class data service on your own cluster.
 This service is based on [ActiveState/stackato-echoservice](https://github.com/ActiveState/stackato-echoservice)
 with some additional scripts (e.g for `kato` and `supervisord`)
 and other minor differences (e.g. the Gemfile). The instructions
-here are for [Stackato v3.0 beta](http://beta.stackato.com/).
+here are for [Stackato v3.2](http://www.stackato.com/).
 
 # Installing
 
@@ -30,9 +30,11 @@ two additional steps are needed to bind the service to the
 core node:
 
     $ for type in elasticsearch_{node,gateway} ; do
-        kato config set $type mbus nats://<CORE_IP>:4522
+        kato config set $type mbus nats://<CORE_IP>:4222
     done
     $ scp /s/code/services/elasticsearch/etc/kato/processes/*.yml stackato@<CORE_IP>:/s/etc/kato/processes/
+
+Replacing &lt;CORE_IP&gt; with the IP of your core node.
 
 ## Verify the service
 
